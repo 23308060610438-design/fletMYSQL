@@ -5,7 +5,7 @@ class AuthController:
     def __init__(self):
         self.model=UsuarioModel()
         def registrar-ususario(self, nombre, email, password):
-            try:
+        try:
                 nuevo_usuario = UsuarioSchemas(nombre=nombre, email=email, password=password)
                 succes = self.model.registrar(nuevo_usuario)
                 return succes, "Usuario creado correctamente"
