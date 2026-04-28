@@ -2,11 +2,11 @@ import flet as ft
 
 def LoginView(page, auth_controller):
     email_input = ft.TextField(label="correo electronico", width=350, border_radius=10)
-    # Corregido: pass_input para usarlo en la lógica
+    
     pass_input = ft.TextField(label="contraseña", password=True, can_reveal_password=True, width=350, border_radius=10)
     
     def login_click(e):
-        # Corregido: Tenías 'pass_input,value' (con coma) en lugar de '.value' (con punto)
+        
         user, msg = auth_controller.login(email_input.value, pass_input.value)
         if user:
             page.session.set("user", user)

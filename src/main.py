@@ -5,20 +5,22 @@ from Views.LoginView import LoginView
 from Views.DashboardView import DashboardView
 
 def start(page: ft.Page):
-    
     page.title = "Sistema SIGE"
-    page.window_width = 450 
-    page.window_height = 700
+    page.window.width = 450      # Nota: En versiones nuevas de Flet se usa window.width
+    page.window.height = 700
     
+    # Inicialización de controladores
     auth_ctrl = AuthController()
     task_ctrl = TareaController()
     
     def route_change(e):
-    
         page.views.clear()
         
+        # Ruta principal: Login
         if page.route == "/":
             page.views.append(LoginView(page, auth_ctrl))
+        
+        # Ruta de trabajo: Dashboard
         elif page.route == "/dashboard":
             page.views.append(DashboardView(page, task_ctrl))
             
@@ -30,20 +32,15 @@ def start(page: ft.Page):
             top_view = page.views[-1]
             page.go(top_view.route)
 
-    
+    # Configuración de eventos de navegación
     page.on_route_change = route_change
     page.on_view_pop = view_pop
     
-    print("Iniciando navegación...")
-    
-    
-    if page.route == "/":
-        route_change(None)
-    else:
-        page.go("/")
-
+    # Navegación inicial
+    page.go(page.route)
 
 def main():
+    # Ejecuta la app
     ft.app(target=start)
                         
 if __name__ == "__main__":
