@@ -1,8 +1,7 @@
 import bcrypt
 from mysql.connector import Error
 # Importación relativa: el punto (.) significa "busca en esta misma carpeta"
-from .databaseModel import Database
-
+from .database import Database
 class UsuarioModel:
     def __init__(self):
         self.db = Database()
