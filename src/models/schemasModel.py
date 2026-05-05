@@ -2,7 +2,7 @@ from pydantic import BaseModel, EmailStr, Field, ConfigDict
 from typing import Optional
 from datetime import date, time
 
-# Cambié el nombre a UsuarioSchemas (con S) para que coincida con tu controlador
+
 class UsuarioSchemas(BaseModel):
     nombre: str = Field(..., min_length=3, max_length=100, description="Nombre completo del usuario")
     email: EmailStr

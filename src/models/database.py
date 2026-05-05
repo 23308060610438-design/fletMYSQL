@@ -6,9 +6,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 class Database:
-    # Quitamos el @staticmethod para que funcione con self.db = Database()
-    # O simplemente lo dejamos así y lo llamamos directamente.
-    
+
+
     def get_connection(self):
         """
         Establece y retorna una conexión a la base de datos MySQL.
